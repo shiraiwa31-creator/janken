@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <script src="js/jquery-2.1.3.min.js"></script>
+  <link rel="stylesheet" href="css/sample.css">
+  <title>じゃんけん</title>
+</head>
+
+<body>
+
+  <header>
+    <h1 id="start">さいしょは</h1>
+  </header>
+
+  <main>
+    <ul>
+      <li id="gu_btn"><img src="img/gu.png" alt="グーの画像"></li>
+      <li id="cho_btn"><img src="img/cho.png" alt="チョキの画像"></li>
+      <li id="par_btn"><img src="img/pa.png" alt="パーの画像"></li>
+    </ul>
+    <div id="kekka">私は<span id="pc_hands">なに？</span>を出しました。</div>
+    <div id="kekka2"><span id="judgment">勝ち</span>。</div>
+  </main>
+
+  <footer></footer>
+  <script>
+    //じゃんけん用のSCRIPTを書いてください
+
+    $(function () {
+
+      $("#start").hide();
+
+      $("#start").text("さいしょは").fadeIn(600);
+      $(function () {
+
+        // 隠す
+        $("#start").hide();
+
+        // さいしょは
+        $("#start").text("さいしょは").fadeIn(600);
+
+        // ぐー（1秒後）
+        setTimeout(function () {
+          $("#start").fadeOut(300, function () {
+            $("#start").text("ぐー").fadeIn(600);
+          });
+        }, 1000);
+
+        // じゃんけん（2秒後）
+        setTimeout(function () {
+          $("#start").fadeOut(300, function () {
+            $("#start").text("じゃんけん").fadeIn(600);
+          });
+        }, 2000);
+
+        // ぽん（3秒後）
+        setTimeout(function () {
+          $("#start").fadeOut(300, function () {
+            $("#start").text("ぽん").fadeIn(600);
+          });
+        }, 3000);
+
+      });
+      setTimeout(function () {
+        $("#start").fadeOut(300, function () {
+          $("#start").text("ぐー").fadeIn(600);
+        });
+      }, 1000);
+
+      // じゃんけんぽん（2秒後）
+      setTimeout(function () {
+        $("#start").fadeOut(300, function () {
+          $("#start").text("じゃんけんぽん").fadeIn(600);
+        });
+      }, 2000);
+
+    });
+
+
+    const r = Math.floor(Math.random() * 3) + 1;
+    if (r == 1) {
+      $("#pc_hands").text("グー");
+    } else if (r == 2) {
+      $("#pc_hands").text("チョキ");
+    } else {
+      $("#pc_hands").text("パー");
+    };
+
+    $("#pc_hands").hide()
+    $("#judgment").hide()
+    $("#kekka").hide()
+    $("#kekka2").hide()
+
+    $("#gu_btn").on("click", function () {
+      if (r == 1) { $("#judgment").text("あいこ"); }
+      else if (r == 2) { $("#judgment").text("あなたの勝ち🥳"); }
+      else { $("#judgment").text("あなたの負け😭"); }
+    });
+
+    $("#cho_btn").on("click", function () {
+      if (r == 1) { $("#judgment").text("あなたの負け😭"); }
+      else if (r == 2) { $("#judgment").text("あいこ"); }
+      else { $("#judgment").text("あなたの勝ち🥳"); }
+    });
+
+    $("#par_btn").on("click", function () {
+      if (r == 1) { $("#judgment").text("あなたの勝ち🥳"); }
+      else if (r == 2) { $("#judgment").text("あなたの負け😭"); }
+      else { $("#judgment").text("あいこ"); }
+    });
+
+    $("#gu_btn").on("click", function () {
+      $("#pc_hands").fadeIn(500)
+      $("#judgment").fadeIn(500)
+      $("#kekka").fadeIn(500)
+      $("#kekka2").fadeIn(500)
+    });
+    $("#cho_btn").on("click", function () {
+      $("#pc_hands").fadeIn(500)
+      $("#judgment").fadeIn(500)
+      $("#kekka").fadeIn(500)
+      $("#kekka2").fadeIn(500)
+    });
+    $("#par_btn").on("click", function () {
+      $("#pc_hands").fadeIn(500)
+      $("#judgment").fadeIn(500)
+      $("#kekka").fadeIn(500)
+      $("#kekka2").fadeIn(500)
+    });
+
+    $("#gu_btn").on("click", function () {
+      setTimeout(function () {
+        location.reload();
+      }, 2000);
+    });
+    $("#cho_btn").on("click", function () {
+      setTimeout(function () {
+        location.reload();
+      }, 2000);
+    });
+    $("#par_btn").on("click", function () {
+      setTimeout(function () {
+        location.reload();
+      }, 2000);
+    });
+
+    //  $("#judgement").text("あいこ"); 
+
+
+
+
+  </script>
+</body>
+
+</html>
